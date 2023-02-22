@@ -1,6 +1,6 @@
 general:
   stop_time: 9000 s
-  data_directory: /home/blue/hugo-shadow-bft-starter-main/results
+  data_directory: /home/blue/hugo-shadow-bft-starter/results
   parallelism: 20
 experimental:
   use_legacy_working_dir: true
