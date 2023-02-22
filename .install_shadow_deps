@@ -45,4 +45,9 @@ cd shadow
 ./setup install
 
 
-echo 'export PATH="${PATH}:/home/${USER}/.local/bin"' >> ~/.bashrc
+# Because it's in a script, lets put it into bash_functions
+if ! command -v "shadow" &> /dev/null
+    then
+        echo 'export PATH="${PATH}:/home/${USER}/.local/bin"' >> ~/.bash_functions
+        source ~/.bash_functions
+fi
