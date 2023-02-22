@@ -43,11 +43,3 @@ cd shadow
 # Optionally install (to ~/.local/bin by default). Can otherwise run the binary
 # directly at build/src/main/shadow.
 ./setup install
-
-
-# Because it's in a script, lets put it into bash_functions
-if ! command -v "shadow" &> /dev/null
-    then
-        echo 'export PATH="${PATH}:/home/${USER}/.local/bin"' >> ~/.bash_functions
-        source ~/.bash_functions
-fi
