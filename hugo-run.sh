@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Setting global directives
 
@@ -10,17 +10,19 @@ NUMBER_OF_NODES=7
 
 
 # Checking if Shadow is installed and resolving if not
+
+
 if ! command -v "shadow" &> /dev/null
 then
     echo "Shadow was not found in your system.."
     echo "Installing dependencies.."
     ./.install_shadow_deps
-    source ~/.bashrc
-    shadow --version
-
     if command -v "shadow" &> /dev/null
     then
+      clear
       echo "Shadow installed sucessfully"
+      sleep 2
+    fi
 fi
 
 
