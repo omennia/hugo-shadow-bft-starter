@@ -27,8 +27,6 @@ then
 fi
 
 
-
-
 # Checking if we cloned the repo BFT-SmaRT 
 if [ ! -d "$BFT_SMART_DIR" ]; then
   echo "BFT-SmaRT directory must be specified in hugo-run.sh."
