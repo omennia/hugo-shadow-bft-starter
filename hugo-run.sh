@@ -15,6 +15,12 @@ then
     echo "Shadow was not found in your system.."
     echo "Installing dependencies.."
     ./.install_shadow_deps
+    source ~/.bashrc
+    shadow --version
+
+    if command -v "shadow" &> /dev/null
+    then
+      echo "Shadow installed sucessfully"
 fi
 
 
