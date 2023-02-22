@@ -2,28 +2,19 @@
 
 # Setting global directives
 
-HOME_DIR=/home/blue/hugo-shadow-bft-starter
-TARGET=/home/blue/hugo-shadow-bft-starter/results
-SHADOW_DIR=/home/blue/shadow
-BFT_SMART_DIR=/home/blue/library
+HOME_DIR=/home/red/hugo-shadow-bft-starter-main
+TARGET=/home/red/hugo-shadow-bft-starter-main/results
+SHADOW_DIR=/home/red/shadow
+BFT_SMART_DIR=/home/red/library
 NUMBER_OF_NODES=7
 
 
-
-# # Installing shadow dependencies
-# if [ ! -d "$SHADOW_DIR" ]; then
-#   echo "Shadow directory must be specified in hugo-run.sh."
-#   echo "You can get it at: https://github.com/shadow/shadow"
-#   echo "Now exiting.."
-#   exit 0
-# fi
-
+# Checking if Shadow is installed and resolving if not
 if ! command -v "shadow" &> /dev/null
 then
     echo "Shadow was not found in your system.."
     echo "Installing dependencies.."
     ./.install_shadow_deps
-    exit
 fi
 
 
@@ -77,5 +68,5 @@ echo " "
 # Starting shadow
 shadow shadow.yaml > hugo.log
 # shadow shadow.yaml
-# rm -r config
-# rm -r lib
+rm -r config
+rm -r lib
