@@ -112,12 +112,12 @@ signed main(int argc, char **argv){
 
   for(int i=0; i<num_replicas; ++i){
     node replica = generate_node(i, ini_port_replica, ini_port_replica+1, false);
-    ini_port_replica += 10;
+    //ini_port_replica += 10;
     replicas.push_back(replica);
   }
 
   for(int i=0; i<num_clients; ++i){
-    node client = generate_node(5000 + 1000 * (i+1), port_client, port_client, false);
+    node client = generate_node(7000 + 1000 * (i+1), port_client, port_client, false);
     clients.push_back(client);
   }
 
