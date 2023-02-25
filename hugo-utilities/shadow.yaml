@@ -13,7 +13,7 @@ network:
   use_shortest_path: false
 hosts:
   bft_smart_replica0:
-    ip_addr: 204.65.230.51
+    ip_addr: 182.56.222.12
     network_node_id: 0
     processes:
       - path: /usr/bin/java
@@ -25,7 +25,7 @@ hosts:
           nosig
         start_time: 0 s
   bft_smart_replica1:
-    ip_addr: 66.124.24.210
+    ip_addr: 149.40.71.135
     network_node_id: 1
     processes:
       - path: /usr/bin/java
@@ -37,7 +37,7 @@ hosts:
           nosig
         start_time: 0 s
   bft_smart_replica2:
-    ip_addr: 161.229.77.177
+    ip_addr: 57.21.125.234
     network_node_id: 2
     processes:
       - path: /usr/bin/java
@@ -49,7 +49,7 @@ hosts:
           nosig
         start_time: 0 s
   bft_smart_replica3:
-    ip_addr: 105.38.168.74
+    ip_addr: 4.42.9.123
     network_node_id: 3
     processes:
       - path: /usr/bin/java
@@ -61,7 +61,7 @@ hosts:
           nosig
         start_time: 0 s
   bft_smart_client0:
-    ip_addr: 105.6.199.249
+    ip_addr: 50.202.184.102
     network_node_id: 4
     processes:
       - path: /usr/bin/java
@@ -73,7 +73,7 @@ hosts:
           nosig
         start_time: 64 s
   bft_smart_client1:
-    ip_addr: 133.10.174.186
+    ip_addr: 158.197.229.30
     network_node_id: 5
     processes:
       - path: /usr/bin/java
@@ -85,7 +85,7 @@ hosts:
           nosig
         start_time: 64 s
   bft_smart_client2:
-    ip_addr: 84.99.152.17
+    ip_addr: 127.186.19.207
     network_node_id: 6
     processes:
       - path: /usr/bin/java
