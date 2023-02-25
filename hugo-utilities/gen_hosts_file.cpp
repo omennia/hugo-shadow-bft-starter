@@ -74,8 +74,9 @@ void print_shadow_yaml(){
     mf << "    processes:\n";
     mf << "      - path: /usr/bin/java\n";
     mf << "        environment: ''\n";
-    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.ThroughputLatencyServer 0 2000 0 0 false\n          nosig\n";
-    mf << "        start_time: 0 s\n";
+    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.ThroughputLatencyServer ";
+    mf << r_idx-1 << " 2000 0 0 false\n          nosig\n";
+    mf << "        start_time: " << r_idx-1 <<" s\n";
   }
 
    for(auto &elem : clients){
@@ -85,7 +86,8 @@ void print_shadow_yaml(){
     mf << "    processes:\n";
     mf << "      - path: /usr/bin/java\n";
     mf << "        environment: ''\n";
-    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.ThroughputLatencyServer 0 2000 0 0 false\n          nosig\n";
+    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.ThroughputLatencyServer ";
+    mf << elem.id << " 1 20000 0 0\n          false true nosig\n";
     mf << "        start_time: 64 s\n";
   }
 
