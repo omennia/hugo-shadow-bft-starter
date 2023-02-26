@@ -87,7 +87,7 @@ echo " "
 
 # stop point for now
 # Testing
-# cp .syst_conf ./config/system.config
+cp .syst_conf ./config/system.config
 # exit 0
 # rm -rf library
 
