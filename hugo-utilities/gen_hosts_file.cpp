@@ -53,7 +53,7 @@ void print_shadow_yaml(){
   mf.open("shadow.yaml");
   mf << "general:" << '\n';
   mf << "  stop_time: 9000 s" << '\n';
-  mf << "  data_directory: /home/blue/hugo-shadow-bft-starter/results" << '\n';
+  mf << "  data_directory: /home/red/hugo-shadow-bft-starter-main/results" << '\n';
   mf << "  parallelism: 20" << '\n';
 
   mf << "experimental:" << '\n';
