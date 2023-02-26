@@ -21,7 +21,7 @@ node generate_node(int id, int p1, int p2, bool ic){
   current.id = id;
 
   do{
-    int ip1 = rand()%255, ip2 = rand()%255, ip3 = rand()%255, ip4 = rand()%255;
+    int ip1 = 11, ip2 = rand()%255 + 1, ip3 = rand()%255 + 1, ip4 = rand()%255 + 1;
     current.ip = to_string(ip1) + '.' + to_string(ip2) + '.' + to_string(ip3) + '.' + to_string(ip4);
   } while(st.find(current.ip) != st.end());
   st.insert(current.ip);
@@ -37,7 +37,7 @@ void print_hosts_config(){
   mf.open("hosts.config");
   for(auto &elem : replicas){
     mf << elem.id << ' ' << elem.ip << ' ' << elem.port_1 << ' ' << elem.port_2 << '\n';
-  } mf << '\n';
+  }
   for(auto &elem : clients){
     mf << elem.id << ' ' << elem.ip << ' ' << elem.port_1 << '\n';
   }
@@ -86,7 +86,7 @@ void print_shadow_yaml(){
     mf << "    processes:\n";
     mf << "      - path: /usr/bin/java\n";
     mf << "        environment: ''\n";
-    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.ThroughputLatencyServer ";
+    mf << "        args: >-\n          -Djava.security.properties=config/java.security\n          -Dlogback.configurationFile=config/logback.xml -cp lib/* -Xmx500m\n          bftsmart.demo.microbenchmarks.AsyncLatencyClient ";
     mf << elem.id << " 1 20000 0 0\n          false true nosig\n";
     mf << "        start_time: 64 s\n";
   }
@@ -112,12 +112,12 @@ signed main(int argc, char **argv){
 
   for(int i=0; i<num_replicas; ++i){
     node replica = generate_node(i, ini_port_replica, ini_port_replica+1, false);
-    //ini_port_replica += 10;
+    // ini_port_replica += 10;
     replicas.push_back(replica);
   }
 
   for(int i=0; i<num_clients; ++i){
-    node client = generate_node(7000 + 1000 * (i+1), port_client, port_client, false);
+    node client = generate_node(7000 + 1000 * i, port_client, port_client, false);
     clients.push_back(client);
   }
 
