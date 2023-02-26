@@ -2,10 +2,10 @@
 
 # Setting global directives
 
-HOME_DIR=/home/blue/hugo-shadow-bft-starter
-TARGET=/home/blue/hugo-shadow-bft-starter/results
-SHADOW_DIR=/home/blue/shadow
-BFT_SMART_DIR=/home/blue/hugo-shadow-bft-starter/library
+HOME_DIR=/home/red/hugo-shadow-bft-starter-main
+TARGET=/home/red/hugo-shadow-bft-starter-main/results
+SHADOW_DIR=/home/red/shadow
+BFT_SMART_DIR=/home/red/hugo-shadow-bft-starter-main/library
 NUMBER_OF_NODES=7
 NUMBER_OF_REPLICAS=4
 NUMBER_OF_CLIENTS=3
@@ -92,6 +92,7 @@ echo " "
 # rm -rf library
 
 # Starting shadow
-shadow --use-memory-manager=false shadow.yaml > hugo.log
+# shadow --use-memory-manager=false shadow.yaml # Por algum motivo com --use-memory-manager=false crasha.. hum
+shadow shadow.yaml
 rm -r config
 rm -r lib
