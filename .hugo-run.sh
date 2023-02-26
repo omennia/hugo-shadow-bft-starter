@@ -86,11 +86,12 @@ cd $HOME_DIR
 echo " "
 
 # stop point for now
+# Testing
+# cp .syst_conf ./config/system.config
 # exit 0
-
+# rm -rf library
 
 # Starting shadow
-# shadow shadow.yaml > hugo.log
-shadow shadow.yaml
+shadow --use-memory-manager=false shadow.yaml > hugo.log
 rm -r config
 rm -r lib
