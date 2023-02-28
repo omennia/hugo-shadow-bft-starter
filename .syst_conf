@@ -28,7 +28,7 @@ system.totalordermulticast.checkpoint_period = 1024
 system.totalordermulticast.global_checkpoint_period = 120000
 system.totalordermulticast.checkpoint_to_disk = false
 system.totalordermulticast.sync_ckp = false
-system.totalordermulticast.maxBatchSizeInBytes = 999999999999
+system.totalordermulticast.maxBatchSizeInBytes = 999999999
 system.totalordermulticast.maxbatchsize = 1000
 system.totalordermulticast.timeout = 2000
 
