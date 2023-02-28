@@ -1,0 +1,7 @@
+HOME_DIR: /home/red/hugo-shadow-bft-starter-main
+TARGET: /home/red/hugo-shadow-bft-starter-main/results
+SHADOW_DIR: /home/red/shadow
+BFT_SMART_DIR: /home/red/hugo-shadow-bft-starter-main/library
+NUMBER_OF_NODES: 7
+NUMBER_OF_REPLICAS: 4
+NUMBER_OF_CLIENTS: 3
