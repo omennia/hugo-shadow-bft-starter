@@ -2,6 +2,7 @@
 #include <fstream>
 using namespace std;
 
+string results_directory = "";
 
 struct node{ // Represents either a client or a replica
   int id;
@@ -14,6 +15,26 @@ struct node{ // Represents either a client or a replica
 vector<node> clients;
 vector<node> replicas;
 set<string> st;
+
+void read_yaml(){
+  ifstream mf;
+  mf.open("general_config.yaml");
+  if(mf.is_open()){
+    string tmp;
+    bool found = false;
+    while( mf >> tmp ){
+      if(tmp == "TARGET:"){
+        mf >> results_directory;
+        found = true;
+        break;
+      }
+    }
+    if(!found){
+      cerr << "Must declare the TARGET in the general_config.yaml file\n";
+      exit(1);
+    }
+  }
+}
 
 
 node generate_node(int id, int p1, int p2, bool ic){
@@ -53,7 +74,7 @@ void print_shadow_yaml(){
   mf.open("shadow.yaml");
   mf << "general:" << '\n';
   mf << "  stop_time: 9000 s" << '\n';
-  mf << "  data_directory: /home/red/hugo-shadow-bft-starter/results" << '\n';
+  mf << "  data_directory: " << results_directory << '\n';
   mf << "  parallelism: 20" << '\n';
 
   mf << "experimental:" << '\n';
@@ -121,6 +142,7 @@ signed main(int argc, char **argv){
     clients.push_back(client);
   }
 
+  read_yaml();
   print_hosts_config();
   print_shadow_yaml();
 }
