@@ -1,15 +1,22 @@
 #!/usr/bin/env bash
 
-# Setting global directives
-
-HOME_DIR=/home/red/hugo-shadow-bft-starter-main
-TARGET=/home/red/hugo-shadow-bft-starter-main/results
-SHADOW_DIR=/home/red/shadow
-BFT_SMART_DIR=/home/red/hugo-shadow-bft-starter-main/library
-NUMBER_OF_NODES=7
-NUMBER_OF_REPLICAS=4
-NUMBER_OF_CLIENTS=3
-
+# Função copiada do stack overflow para dar parse do ficheiro yaml
+function parse_yaml {
+   local prefix=$2
+   local s='[[:space:]]*' w='[a-zA-Z0-9_]*' fs=$(echo @|tr @ '\034')
+   sed -ne "s|^\($s\):|\1|" \
+        -e "s|^\($s\)\($w\)$s:$s[\"']\(.*\)[\"']$s\$|\1$fs\2$fs\3|p" \
+        -e "s|^\($s\)\($w\)$s:$s\(.*\)$s\$|\1$fs\2$fs\3|p"  $1 |
+   awk -F$fs '{
+      indent = length($1)/2;
+      vname[indent] = $2;
+      for (i in vname) {if (i > indent) {delete vname[i]}}
+      if (length($3) > 0) {
+         vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
+         printf("%s%s%s=\"%s\"\n", "'$prefix'",vn, $2, $3);
+      }
+   }'
+}
 
 # Checking if Shadow is installed and resolving if not
 if ! command -v "shadow" &> /dev/null
@@ -24,6 +31,9 @@ then
       sleep 2
     fi
 fi
+
+# # parse_yaml general_config.yaml
+eval $(parse_yaml general_config.yaml)
 
 
 # Checking if we cloned the repo BFT-SmaRT 
