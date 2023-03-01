@@ -78,10 +78,11 @@ if [ -d "lib" ]; then
 fi
 
 
-# Generating hosts config
+# Generating hosts config and system config
 g++ -Wall -o ghf ./hugo-utilities/gen_hosts_file.cpp && ./ghf $NUMBER_OF_CLIENTS $NUMBER_OF_REPLICAS
 rm ghf
 mv ./hosts.config ./library/config/hosts.config
+g++ -Wall -o gsc ./hugo-utilities/gen_system_conf.cpp && ./gsc
 
 
 cd $BFT_SMART_DIR
