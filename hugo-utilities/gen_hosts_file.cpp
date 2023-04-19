@@ -89,7 +89,7 @@ void print_shadow_yaml(){
   mf << "hosts:" << '\n';
 
   for(auto &elem : replicas){
-    mf << "  bft_smart_replica" << r_idx << ":\n";
+    mf << "  replica" << r_idx << ":\n";
     mf << "    ip_addr: " << elem.ip << '\n';
     mf << "    network_node_id: " << r_idx++ << '\n';
     mf << "    processes:\n";
@@ -101,7 +101,7 @@ void print_shadow_yaml(){
   }
 
    for(auto &elem : clients){
-    mf << "  bft_smart_client" << c_idx++ << ":\n";
+    mf << "  client" << c_idx++ << ":\n";
     mf << "    ip_addr: " << elem.ip << '\n';
     mf << "    network_node_id: " << r_idx++ << '\n';
     mf << "    processes:\n";
